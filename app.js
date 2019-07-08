@@ -5,6 +5,7 @@ var express        = require('express'),
     cookieParser   = require('cookie-parser'),
     bodyParser     = require('body-parser'),
     lessMiddleware = require('less-middleware'),
+    serverless     = require('serverless-http'),
     config         = require('./lib/config');
 
 var app = express(),
@@ -84,6 +85,9 @@ app.use(function(err, req, res, next) {
   }
 });
 
+app.use('/.netlify/functions/server', router);  // path must route to lambda
+
 // var httpPort = (parseInt(process.env.PORT) || 45100);
 // app.listen(httpPort);
 module.exports = app;
+module.exports.handler = serverless(app);

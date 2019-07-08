@@ -2,15 +2,15 @@
   "name": "agg",
   "version": "0.1.0",
   "scripts": {
-    "start": "DEBUG=agg ./bin/www",
+    "start": "node server-local.js",
     "postinstall": "./node_modules/bower/bin/bower install",
-    "build": "gulp build",
+    "build": "gulp build && netlify-lambda build express",
     "watch": "gulp"
   },
   "engines": {
     "node": "0.10.x"
   },
-  "main": "app.js",
+  "main": "functions/server.js",
   "dependencies": {
     "backbone": "^1.1.2",
     "body-parser": "^1.9.2",
@@ -38,6 +38,8 @@
     "gulp-util": "^3.0.4",
     "hbsfy": "^2.2.1",
     "jshint-stylish": "^1.0.0",
+    "netlify-lambda": "^1.5.0",
+    "serverless-http": "^2.0.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.2.1"
