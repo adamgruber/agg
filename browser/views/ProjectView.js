@@ -1,7 +1,7 @@
 /*global $*/
 'use strict';
 var Backbone = require('backbone'),
-    ProjectTmpl = require('../../lib/views/templates/_project.mu');
+    ProjectTmpl = require('../../express/lib/views/templates/_project.mu');
 
 module.exports = Backbone.View.extend({
 
