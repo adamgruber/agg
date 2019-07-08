@@ -42,7 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use('/fonts', express.static(path.join(bootstrapPath, 'fonts')));
 app.use('/templates', express.static(path.join(__dirname, 'lib', 'views', 'templates')));
-app.use(router);
+// app.use(router);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
