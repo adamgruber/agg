@@ -44,49 +44,49 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/fonts', express.static(path.join(bootstrapPath, 'fonts')));
 app.use('/templates', express.static(path.join(__dirname, 'lib', 'views', 'templates')));
 // app.use(router);
+app.use('/.netlify/functions/app', router);  // path must route to lambda
 
-/// catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   var err = new Error('Not Found');
-//   err.status = 404;
-//   next(err);
-// });
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
-/// error handlers
+// error handlers
 
 // development error handler
 // will print stacktrace
-// if (app.get('env') === 'development') {
-//   app.use(function(err, req, res, next) {
-//     if (err && err.status === 404) {
-//       res.status(404);
-//       res.render('404', config.mainPage);
-//     } else {
-//       res.status(err.status || 500);
-//       res.render('error', {
-//         message: err.message,
-//         error: err
-//       });
-//     }
-//   });
-// }
+if (app.get('env') === 'development') {
+  app.use(function(err, req, res, next) {
+    if (err && err.status === 404) {
+      res.status(404);
+      res.render('404', config.mainPage);
+    } else {
+      res.status(err.status || 500);
+      res.render('error', {
+        message: err.message,
+        error: err
+      });
+    }
+  });
+}
 
-// // production error handler
-// // no stacktraces leaked to user
-// app.use(function(err, req, res, next) {
-//   if (err && err.status === 404) {
-//     res.status(404);
-//     res.render('404', config.mainPage);
-//   } else {
-//     res.status(err.status || 500);
-//     res.render('error', {
-//       message: err.message,
-//       error: {}
-//     });
-//   }
-// });
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+  if (err && err.status === 404) {
+    res.status(404);
+    res.render('404', config.mainPage);
+  } else {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: {}
+    });
+  }
+});
 
-app.use('/.netlify/functions/app', router);  // path must route to lambda
 
 module.exports = app;
 module.exports.handler = serverless(app);
