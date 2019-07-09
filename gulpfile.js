@@ -35,13 +35,11 @@ options = {
       './bin/*',
       './lib/**/*.js',
       '!./node_modules/',
-      '!./bower_components/',
     ],
     felint: [
       './browser/**/*.js',
       '!./public/js/',
       '!./node_modules/',
-      '!./bower_components/',
     ],
     bundleDest: './express/public/js/'
   }

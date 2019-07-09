@@ -19,7 +19,7 @@ module.exports = Backbone.View.extend({
     var project = this.model.toJSON(),
         $html = $(this.projectTmpl(project));
     this.setElement($html);
-    this.$parentEl.slickAdd($html);
+    this.$parentEl.slick('slickAdd', $html);
     this.parentView.trigger('projectRendered');
     return this;
   }

@@ -8,13 +8,15 @@ var express        = require('express'),
     serverless     = require('serverless-http'),
     config         = require('./lib/config');
 
+console.log(__dirname);
+
 var app = express(),
     router = require('./lib/router'),
-    bootstrapPath = path.join(__dirname, '..', 'bower_components', 'bootstrap');
+    bootstrapPath = path.join(__dirname, '..', 'node_modules', 'bootstrap');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'lib', 'views'));
-app.set('view engine', 'mu');
+app.set('view engine', 'mu');s
 app.set('layout', 'layouts/default');
 app.set('partials', config.partials);
 app.engine('mu', require('hogan-express'));
@@ -39,7 +41,6 @@ app.use(lessMiddleware(path.join(__dirname, 'source', 'less'), {
   }
 }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, '..', 'bower_components')));
 app.use('/fonts', express.static(path.join(bootstrapPath, 'fonts')));
 app.use('/templates', express.static(path.join(__dirname, 'lib', 'views', 'templates')));
 app.use(router);
@@ -87,7 +88,5 @@ app.use(function(err, req, res, next) {
 
 app.use('/.netlify/functions/server', router);  // path must route to lambda
 
-// var httpPort = (parseInt(process.env.PORT) || 45100);
-// app.listen(httpPort);
 module.exports = app;
 module.exports.handler = serverless(app);

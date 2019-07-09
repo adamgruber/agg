@@ -9,7 +9,7 @@
     <meta name="author" content="Adam Gruber">
     <title>{{title}}</title>
     {{{yield-styles}}}
-    <script src="js/modernizr.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
   </head>
   <body class="{{bodyStyle}}">
     {{> navbar}}

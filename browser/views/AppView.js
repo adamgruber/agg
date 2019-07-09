@@ -4,9 +4,6 @@ var Backbone = require('backbone'),
     PortfolioCollection = require('../models/PortfolioCollection'),
     PortfolioView = require('./PortfolioView');
 
-require('../../bower_components/velocity/velocity');
-require('../../bower_components/slick.js/slick/slick');
-
 module.exports = Backbone.View.extend({
 
   events: {
