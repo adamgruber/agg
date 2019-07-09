@@ -86,7 +86,7 @@ app.use('/templates', express.static(path.join(__dirname, 'lib', 'views', 'templ
 //   }
 // });
 
-app.use('/.netlify/functions/server', router);  // path must route to lambda
+app.use('/.netlify/functions/app', router);  // path must route to lambda
 
 module.exports = app;
 module.exports.handler = serverless(app);
