@@ -8,18 +8,19 @@ var express        = require('express'),
     serverless     = require('serverless-http'),
     config         = require('./lib/config');
 
-console.log(__dirname);
-
 var app = express(),
     router = require('./lib/router'),
     bootstrapPath = path.join(__dirname, '..', 'node_modules', 'bootstrap');
 
 // view engine setup
-app.set('views', 'lib/views');
+app.set('views', path.join(__dirname, 'lib', 'views'));
 app.set('view engine', 'mu');
 app.set('layout', 'layouts/default');
 app.set('partials', config.partials);
 app.engine('mu', require('hogan-express'));
+
+console.log(__dirname);
+console.log(app);
 
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
