@@ -16,7 +16,7 @@ var app = express(),
 
 // view engine setup
 app.set('views', path.join(__dirname, 'lib', 'views'));
-app.set('view engine', 'mu');s
+app.set('view engine', 'mu');
 app.set('layout', 'layouts/default');
 app.set('partials', config.partials);
 app.engine('mu', require('hogan-express'));
