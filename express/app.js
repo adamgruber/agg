@@ -15,7 +15,7 @@ var app = express(),
     bootstrapPath = path.join(__dirname, '..', 'node_modules', 'bootstrap');
 
 // view engine setup
-app.set('views', path.join(__dirname, 'lib', 'views'));
+app.set('views', 'lib/views');
 app.set('view engine', 'mu');
 app.set('layout', 'layouts/default');
 app.set('partials', config.partials);
