@@ -43,7 +43,7 @@ options = {
       '!./node_modules/',
       '!./bower_components/',
     ],
-    bundleDest: './public/js/'
+    bundleDest: './express/public/js/'
   }
 };
 
