@@ -10,22 +10,22 @@ var express        = require('express'),
 
 var app = express(),
     router = require('./lib/router'),
-    bootstrapPath = path.join(__dirname, 'bower_components', 'bootstrap');
+    bootstrapPath = path.join('bower_components', 'bootstrap');
 
 // view engine setup
-app.set('views', path.join(__dirname, 'lib', 'views'));
+app.set('views', path.join('lib', 'views'));
 app.set('view engine', 'mu');
 app.set('layout', 'layouts/default');
 app.set('partials', config.partials);
 app.engine('mu', require('hogan-express'));
 
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join('public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(lessMiddleware(path.join(__dirname, 'source', 'less'), {
+app.use(lessMiddleware(path.join('source', 'less'), {
   debug: app.get('env') === 'development',
   force: app.get('env') === 'development',
   preprocess: {
@@ -33,15 +33,15 @@ app.use(lessMiddleware(path.join(__dirname, 'source', 'less'), {
       return pathname.replace('stylesheets/', '');
     }
   },
-  dest: path.join(__dirname, 'public'),
+  dest: 'public',
   parser: {
     paths: [path.join(bootstrapPath, 'less')],
   }
 }));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'bower_components')));
+app.use(express.static('public'));
+app.use(express.static('bower_components'));
 app.use('/fonts', express.static(path.join(bootstrapPath, 'fonts')));
-app.use('/templates', express.static(path.join(__dirname, 'lib', 'views', 'templates')));
+app.use('/templates', express.static(path.join('lib', 'views', 'templates')));
 // app.use(router);
 
 /// catch 404 and forward to error handler
