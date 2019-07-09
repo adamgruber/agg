@@ -43,7 +43,6 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use('/fonts', express.static(path.join(bootstrapPath, 'fonts')));
 app.use('/templates', express.static(path.join(__dirname, 'lib', 'views', 'templates')));
 // app.use(router);
-app.use('/.netlify/functions/server', router);  // path must route to lambda
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -86,6 +85,7 @@ app.use(function(err, req, res, next) {
   }
 });
 
+app.use('/.netlify/functions/server', router);  // path must route to lambda
 
 // var httpPort = (parseInt(process.env.PORT) || 45100);
 // app.listen(httpPort);
