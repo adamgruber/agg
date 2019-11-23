@@ -5,10 +5,22 @@
   },
   "experience": [
     {
+      "jobTitle": "Senior Software Engineer",
+      "company": "AWeber",
+      "location": "Chalfont, PA",
+      "dates": "December 2016 - Present",
+      "duties": [
+        "Work within an Agile team to improve applications for content creation including our flagship drag and drop email builder",
+        "Migrate legacy PHP/Backbone apps to a modern React stack",
+        "Develop and maintain React component library",
+        "Implement tooling solutions for a uniform developer experience"
+      ]
+    },
+    {
       "jobTitle": "Application Architect",
       "company": "Dow Jones & Company, Inc.",
       "location": "Princeton, NJ",
-      "dates": "July 2013 - Present",
+      "dates": "July 2013 - December 2016",
       "duties": [
         "Full-stack JS development",
         "Scrum Master / Tech Lead",
