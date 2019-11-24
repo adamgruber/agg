@@ -2,8 +2,8 @@
 <section id="resume" class="resume">
   <div class="container-fluid">
     <div class="clearfix">
-      <h2 class="pull-left">Resume</h2>
-      <a href="AdamGruber_Resume2016.pdf" target="_blank" class="btn btn-default download-btn">
+      <h2 class="pull-left">{{resumeTitle}}</h2>
+      <a href="AdamGruber_Resume2019.pdf" target="_blank" class="btn btn-default download-btn">
         <i class="fa fa-file-pdf-o"></i> Download PDF
       </a>
     </div>
@@ -41,6 +41,25 @@
             </div>
           </div>
         </div>
+        <!-- Links -->
+        {{#showLinks}}
+        <div class="resume-wrap links">
+          <h3 class="resume-section-header">Contact / Links</h3>
+          <div class="row">
+            <div class="col-xs-12">
+              <ul class="list-unstyled">
+                <li>{{contact.email}}</li>
+                <li>{{contact.phone}}</li>
+                <li>{{contact.address}}</li>
+              <ul class="list-unstyled resume-list">
+                {{#resumeLinks}}
+                <li>{{.}}</li>
+                {{/resumeLinks}}
+              </ul>
+            </div>
+          </div>
+        </div>
+        {{/showLinks}}
       </div>
       <div class="col-sm-8">
         <!-- Experience -->
