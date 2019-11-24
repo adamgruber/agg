@@ -43,7 +43,8 @@ options = {
       '!./node_modules/',
       '!./bower_components/',
     ],
-    bundleDest: './public/js/'
+    bundleDest: './public/js/',
+    nowDest: './now/js/'
   }
 };
 
@@ -82,7 +83,8 @@ function bundle (b) {
       .pipe(uglify())
       .on('error', gutil.log)
     .pipe(rename(options.rename))
-    .pipe(gulp.dest(options.paths.bundleDest));
+    .pipe(gulp.dest(options.paths.bundleDest))
+    .pipe(gulp.dest(options.paths.nowDest));
 }
 
 gulp.task('build', ['lint', 'felint', 'browserify'], function() {});
